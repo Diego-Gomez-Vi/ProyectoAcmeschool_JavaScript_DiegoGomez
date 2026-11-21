@@ -12,6 +12,10 @@ const tableBody = document.getElementById("usersTableBody");
 
 const userForm = document.getElementById("userForm");
 
+const submitBtn = document.getElementById("submitBtn");
+
+let editingUserId = null;
+
 function renderUsers() {
 
     const users = getUsers();
@@ -27,7 +31,10 @@ function renderUsers() {
                 <td>${user.email}</td>
                 <td>${user.cargo}</td>
                 <td>
-                    <button class="btn-edit">
+                    <button
+                        class="btn-edit"
+                        data-id="${user.id}"
+                    >
                         Editar
                     </button>
 
@@ -57,6 +64,22 @@ function renderUsers() {
         });
 
     });
+
+    const editButtons =
+        document.querySelectorAll(".btn-edit");
+
+    editButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const userId =
+                button.dataset.id;
+
+            editUser(userId);
+
+        });
+
+    });
 }
 
 renderUsers();
@@ -72,6 +95,39 @@ function deleteUser(userId) {
     saveUsers(filteredUsers);
 
     renderUsers();
+}
+
+function editUser(userId) {
+
+    const users = getUsers();
+
+    const user = users.find(
+        user => user.id === userId
+    );
+
+    if (!user) return;
+
+    document.getElementById("identificacion").value =
+        user.id;
+
+    document.getElementById("nombre").value =
+        user.nombre;
+
+    document.getElementById("email").value =
+        user.email;
+
+    document.getElementById("telefono").value =
+        user.telefono;
+
+    document.getElementById("cargo").value =
+        user.cargo;
+
+    document.getElementById("password").value =
+        user.password;
+
+    editingUserId = userId;
+
+    submitBtn.textContent = "Actualizar Usuario";
 }
 
 console.log("Módulo de usuarios cargado");
@@ -99,16 +155,39 @@ userForm.addEventListener("submit", (event) => {
 
     const users = getUsers();
 
-    const newUser = {
-        id: identificacion,
-        nombre,
-        email,
-        telefono,
-        cargo,
-        password
-    };
+    if (editingUserId) {
 
-    users.push(newUser);
+        const userIndex = users.findIndex(
+            user => user.id === editingUserId
+        );
+
+        users[userIndex] = {
+            id: identificacion,
+            nombre,
+            email,
+            telefono,
+            cargo,
+            password
+        };
+
+        editingUserId = null;
+
+        submitBtn.textContent = "Guardar Usuario";
+
+    } else {
+
+        const newUser = {
+            id: identificacion,
+            nombre,
+            email,
+            telefono,
+            cargo,
+            password
+        };
+
+        users.push(newUser);
+
+    }
 
     saveUsers(users);
 
