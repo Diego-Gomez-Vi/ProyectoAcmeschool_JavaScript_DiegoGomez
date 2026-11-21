@@ -1,5 +1,6 @@
 import { initializeData } from "./data/storage.js";
+import "./auth/login.js";
 
 initializeData();
 
-console.log("Datos inicializados correctamente");
+console.log("Acme School iniciado");
