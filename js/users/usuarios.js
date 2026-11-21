@@ -43,7 +43,7 @@ function renderUsers() {
     });
 
     const deleteButtons =
-    document.querySelectorAll(".btn-delete");
+        document.querySelectorAll(".btn-delete");
 
     deleteButtons.forEach(button => {
 
