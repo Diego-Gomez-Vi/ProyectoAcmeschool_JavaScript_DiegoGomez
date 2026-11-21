@@ -31,16 +31,48 @@ function renderUsers() {
                         Editar
                     </button>
 
-                    <button class="btn-delete">
+                    <button 
+                        class="btn-delete"
+                        data-id="${user.id}"
+                    >
                         Eliminar
                     </button>
                 </td>
             </tr>
         `;
     });
+
+    const deleteButtons =
+    document.querySelectorAll(".btn-delete");
+
+    deleteButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const userId =
+                button.dataset.id;
+
+            deleteUser(userId);
+
+        });
+
+    });
 }
 
 renderUsers();
+
+function deleteUser(userId) {
+
+    const users = getUsers();
+
+    const filteredUsers = users.filter(
+        user => user.id !== userId
+    );
+
+    saveUsers(filteredUsers);
+
+    renderUsers();
+}
 
 console.log("Módulo de usuarios cargado");
 
