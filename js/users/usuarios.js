@@ -38,7 +38,7 @@ function renderUsers() {
                         Editar
                     </button>
 
-                    <button 
+                    <button
                         class="btn-delete"
                         data-id="${user.id}"
                     >
@@ -80,6 +80,7 @@ function renderUsers() {
         });
 
     });
+
 }
 
 renderUsers();
@@ -133,27 +134,46 @@ function editUser(userId) {
 console.log("Módulo de usuarios cargado");
 
 userForm.addEventListener("submit", (event) => {
+
     event.preventDefault();
 
     const identificacion =
-        document.getElementById("identificacion").value;
+        document.getElementById("identificacion").value.trim();
 
     const nombre =
-        document.getElementById("nombre").value;
+        document.getElementById("nombre").value.trim();
 
     const email =
-        document.getElementById("email").value;
+        document.getElementById("email").value.trim();
 
     const telefono =
-        document.getElementById("telefono").value;
+        document.getElementById("telefono").value.trim();
 
     const cargo =
         document.getElementById("cargo").value;
 
     const password =
-        document.getElementById("password").value;
+        document.getElementById("password").value.trim();
 
     const users = getUsers();
+
+    const userExists = users.some(
+        user =>
+            (
+                user.id === identificacion ||
+                user.email === email
+            ) &&
+            user.id !== editingUserId
+    );
+
+    if (userExists) {
+
+        alert(
+            "Ya existe un usuario con ese ID o correo electrónico"
+        );
+
+        return;
+    }
 
     if (editingUserId) {
 
@@ -186,7 +206,6 @@ userForm.addEventListener("submit", (event) => {
         };
 
         users.push(newUser);
-
     }
 
     saveUsers(users);
@@ -194,4 +213,5 @@ userForm.addEventListener("submit", (event) => {
     renderUsers();
 
     userForm.reset();
+
 });
