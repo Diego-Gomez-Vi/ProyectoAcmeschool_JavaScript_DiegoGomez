@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Usuarios | Acme School</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/usuarios.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Gestión de Usuarios</h1>
+
+        <a href="./dashboard.html" class="btn-back">
+            Volver
+        </a>
+    </header>
+
+    <main class="users-container">
+
+        <section class="form-section">
+
+            <h2>Registrar Usuario</h2>
+
+            <form id="userForm">
+
+                <input
+                    type="text"
+                    id="identificacion"
+                    placeholder="Número de identificación"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="nombre"
+                    placeholder="Nombre completo"
+                    required
+                >
+
+                <input
+                    type="email"
+                    id="email"
+                    placeholder="Correo electrónico"
+                    required
+                >
+
+                <input
+                    type="tel"
+                    id="telefono"
+                    placeholder="Teléfono"
+                    required
+                >
+
+                <select id="cargo" required>
+                    <option value="">Seleccione un cargo</option>
+                    <option value="Administrativo">
+                        Administrativo
+                    </option>
+                    <option value="Docente">
+                        Docente
+                    </option>
+                </select>
+
+                <input
+                    type="password"
+                    id="password"
+                    placeholder="Contraseña"
+                    required
+                >
+
+                <button type="submit">
+                    Guardar Usuario
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="table-section">
+
+            <h2>Usuarios Registrados</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>ID</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Cargo</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="usersTableBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="./js/users/usuarios.js"></script>
+
+</body>
+</html>
