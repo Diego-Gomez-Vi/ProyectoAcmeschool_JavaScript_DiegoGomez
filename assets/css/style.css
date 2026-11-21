@@ -1,0 +1,178 @@
+/* ==========================
+   RESET
+========================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* ==========================
+   VARIABLES
+========================== */
+
+:root {
+    --primary-color: #2563eb;
+    --primary-dark: #1d4ed8;
+    --secondary-color: #1e293b;
+    --success-color: #22c55e;
+    --danger-color: #ef4444;
+
+    --background-color: #f1f5f9;
+    --card-color: #ffffff;
+
+    --text-color: #334155;
+    --text-light: #64748b;
+
+    --border-radius: 12px;
+    --shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+
+    --transition: all 0.3s ease;
+}
+
+/* ==========================
+   BODY
+========================== */
+
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--background-color);
+    color: var(--text-color);
+    min-height: 100vh;
+}
+
+/* ==========================
+   TITULOS
+========================== */
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+    color: var(--secondary-color);
+    margin-bottom: 0.5rem;
+}
+
+/* ==========================
+   ENLACES
+========================== */
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* ==========================
+   LISTAS
+========================== */
+
+ul,
+ol {
+    list-style: none;
+}
+
+/* ==========================
+   BOTONES GENERALES
+========================== */
+
+button {
+    cursor: pointer;
+    border: none;
+    transition: var(--transition);
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+/* ==========================
+   INPUTS
+========================== */
+
+input,
+select,
+textarea {
+    width: 100%;
+    padding: 12px;
+    border: 1px solid #dbe2ea;
+    border-radius: 8px;
+    font-size: 1rem;
+    outline: none;
+    transition: var(--transition);
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--primary-color);
+    box-shadow: 0 0 5px rgba(37, 99, 235, 0.3);
+}
+
+/* ==========================
+   CONTENEDORES
+========================== */
+
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* ==========================
+   TARJETAS
+========================== */
+
+.card {
+    background-color: var(--card-color);
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    padding: 20px;
+}
+
+/* ==========================
+   MENSAJES
+========================== */
+
+.message {
+    margin-top: 10px;
+    text-align: center;
+    font-size: 0.9rem;
+    color: var(--danger-color);
+}
+
+/* ==========================
+   TABLAS
+========================== */
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: white;
+}
+
+th,
+td {
+    padding: 12px;
+    border-bottom: 1px solid #e2e8f0;
+    text-align: left;
+}
+
+th {
+    background-color: var(--primary-color);
+    color: white;
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 768px) {
+
+    .container {
+        width: 95%;
+    }
+
+}

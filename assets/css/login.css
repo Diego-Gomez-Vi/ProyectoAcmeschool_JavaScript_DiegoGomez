@@ -1,0 +1,126 @@
+/* ==========================
+   CONTENEDOR PRINCIPAL
+========================== */
+
+.login-container {
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* ==========================
+   TARJETA LOGIN
+========================== */
+
+.login-card {
+    width: 100%;
+    max-width: 420px;
+    background-color: var(--card-color);
+    padding: 40px;
+    border-radius: var(--border-radius);
+    box-shadow: var(--shadow);
+    animation: fadeIn 0.5s ease;
+}
+
+/* ==========================
+   CABECERA
+========================== */
+
+.login-header {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.login-header h1 {
+    color: var(--primary-color);
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+.login-header p {
+    color: var(--text-light);
+    font-size: 0.95rem;
+}
+
+/* ==========================
+   FORMULARIO
+========================== */
+
+.login-form {
+    display: flex;
+    flex-direction: column;
+    gap: 18px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+/* ==========================
+   BOTÓN LOGIN
+========================== */
+
+.btn-login {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 14px;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    margin-top: 10px;
+    transition: var(--transition);
+}
+
+.btn-login:hover {
+    background-color: var(--primary-dark);
+    transform: translateY(-2px);
+}
+
+/* ==========================
+   MENSAJE
+========================== */
+
+.message {
+    min-height: 20px;
+}
+
+/* ==========================
+   ANIMACIÓN
+========================== */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(-15px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==========================
+   RESPONSIVE
+========================== */
+
+@media (max-width: 480px) {
+
+    .login-card {
+        padding: 25px;
+    }
+
+    .login-header h1 {
+        font-size: 1.6rem;
+    }
+
+}
