@@ -33,6 +33,6 @@ loginForm.addEventListener("submit", (event) => {
     console.log("Usuario autenticado:", userFound);
 
     setTimeout(() => {
-        window.location.href = "#dashboard";
+        window.location.href = "./dashboard.html";
     }, 1000);
 });

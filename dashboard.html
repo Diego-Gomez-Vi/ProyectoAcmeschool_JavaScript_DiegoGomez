@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dashboard | Acme School</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/dashboard.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Acme School</h1>
+
+        <button id="logoutBtn" class="btn-logout">
+            Cerrar sesión
+        </button>
+    </header>
+
+    <main class="dashboard-container">
+
+        <section class="welcome-section">
+            <h2>Bienvenido</h2>
+            <p>Seleccione el módulo que desea administrar.</p>
+        </section>
+
+        <section class="cards-container">
+
+            <article class="dashboard-card">
+                <h3>Gestión de Usuarios</h3>
+                <p>
+                    Crear, actualizar y eliminar usuarios del sistema.
+                </p>
+
+                <button class="btn-module">
+                    Administrar Usuarios
+                </button>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Gestión de Exámenes</h3>
+                <p>
+                    Crear, editar y administrar exámenes y preguntas.
+                </p>
+
+                <button class="btn-module">
+                    Administrar Exámenes
+                </button>
+            </article>
+
+            <article class="dashboard-card">
+                <h3>Resolución de Exámenes</h3>
+                <p>
+                    Acceso al módulo público de presentación de exámenes.
+                </p>
+
+                <button class="btn-module">
+                    Ver Exámenes
+                </button>
+            </article>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="./js/dashboard.js"></script>
+
+</body>
+</html>
