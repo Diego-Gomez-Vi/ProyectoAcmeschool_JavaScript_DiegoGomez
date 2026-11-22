@@ -64,3 +64,9 @@
 .btn-module:hover {
     background-color: var(--primary-dark);
 }
+
+.btn-module {
+    display: inline-block;
+    text-decoration: none;
+    text-align: center;
+}

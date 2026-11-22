@@ -34,3 +34,18 @@ export function saveUsers(users) {
         JSON.stringify(users)
     );
 }
+
+const EXAMS_KEY = "exams";
+
+export function getExams() {
+    return JSON.parse(
+        localStorage.getItem(EXAMS_KEY)
+    ) || [];
+}
+
+export function saveExams(exams) {
+    localStorage.setItem(
+        EXAMS_KEY,
+        JSON.stringify(exams)
+    );
+}
