@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Exámenes | Acme School</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/examenes.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Gestión de Exámenes</h1>
+
+        <a href="./dashboard.html" class="btn-back">
+            Volver
+        </a>
+    </header>
+
+    <main class="exams-container">
+
+        <section class="form-section">
+
+            <h2>Registrar Examen</h2>
+
+            <form id="examForm">
+
+                <input
+                    type="text"
+                    id="codigo"
+                    placeholder="Código del examen"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="titulo"
+                    placeholder="Título del examen"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="tiempo"
+                    placeholder="Tiempo en minutos"
+                    min="1"
+                    required
+                >
+
+                <input
+                    type="number"
+                    id="aprobacion"
+                    placeholder="Porcentaje de aprobación"
+                    min="1"
+                    max="100"
+                    required
+                >
+
+                <textarea
+                    id="descripcion"
+                    placeholder="Descripción del examen"
+                    rows="4"
+                    required
+                ></textarea>
+
+                <button type="submit" id="submitExamBtn">
+                    Guardar Examen
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="table-section">
+
+            <h2>Exámenes Registrados</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>Código</th>
+                        <th>Título</th>
+                        <th>Tiempo</th>
+                        <th>% Aprobación</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="examsTableBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script type="module" src="./js/exams/examenes.js"></script>
+
+</body>
+</html>
