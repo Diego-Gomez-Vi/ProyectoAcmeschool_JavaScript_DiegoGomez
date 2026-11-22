@@ -86,6 +86,13 @@ tbody tr:hover {
     background-color: #ef4444;
 }
 
+.btn-questions {
+    background-color: #7cb342;
+    color: white;
+    padding: 8px 12px;
+    border-radius: 6px;
+}
+
 textarea {
     resize: vertical;
 }

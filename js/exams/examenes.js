@@ -50,6 +50,13 @@ function renderExams() {
                     >
                         Eliminar
                     </button>
+
+                    <button
+                        class="btn-questions"
+                        data-codigo="${exam.codigo}"
+                    >
+                        Preguntas
+                    </button>
                 </td>
             </tr>
         `;
@@ -82,6 +89,28 @@ function renderExams() {
                 button.dataset.codigo;
 
             editExam(examCode);
+
+        });
+
+    });
+
+    const questionButtons =
+        document.querySelectorAll(".btn-questions");
+
+    questionButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const examCode =
+                button.dataset.codigo;
+
+            localStorage.setItem(
+                "selectedExam",
+                examCode
+            );
+
+            window.location.href =
+                "./preguntas.html";
 
         });
 
