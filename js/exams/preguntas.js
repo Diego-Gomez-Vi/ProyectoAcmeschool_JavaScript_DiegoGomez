@@ -48,7 +48,10 @@ function renderQuestions() {
                 <td>${question.pregunta}</td>
                 <td>${question.correcta}</td>
                 <td>
-                    <button class="btn-edit">
+                    <button
+                        class="btn-edit"
+                        data-id="${question.id}"
+                    >
                         Editar
                     </button>
 
@@ -65,6 +68,22 @@ function renderQuestions() {
 
     const deleteButtons =
         document.querySelectorAll(".btn-delete");
+
+    const editButtons =
+        document.querySelectorAll(".btn-edit");
+
+    editButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const questionId =
+                button.dataset.id;
+
+            editQuestion(questionId);
+
+        });
+
+    });
 
     deleteButtons.forEach(button => {
 
@@ -96,6 +115,42 @@ function deleteQuestion(questionId) {
     renderQuestions();
 }
 
+function editQuestion(questionId) {
+
+    const question =
+        selectedExam.preguntas.find(
+            question =>
+                question.id === Number(questionId)
+        );
+
+    if (!question) return;
+
+    document.getElementById("pregunta").value =
+        question.pregunta;
+
+    document.getElementById("respuestaA").value =
+        question.respuestas[0].texto;
+
+    document.getElementById("respuestaB").value =
+        question.respuestas[1].texto;
+
+    document.getElementById("respuestaC").value =
+        question.respuestas[2].texto;
+
+    document.getElementById("respuestaD").value =
+        question.respuestas[3].texto;
+
+    document.getElementById("respuestaCorrecta").value =
+        question.correcta;
+
+    editingQuestionId = question.id;
+
+    document.getElementById(
+        "submitQuestionBtn"
+    ).textContent =
+        "Actualizar Pregunta";
+}
+
 questionForm.addEventListener("submit", (event) => {
 
     event.preventDefault();
@@ -118,40 +173,89 @@ questionForm.addEventListener("submit", (event) => {
     const respuestaCorrecta =
         document.getElementById("respuestaCorrecta").value;
 
-    const newQuestion = {
-        id: Date.now(),
+    if (editingQuestionId) {
 
-        pregunta,
+        const questionIndex =
+            selectedExam.preguntas.findIndex(
+                question =>
+                    question.id === editingQuestionId
+            );
 
-        respuestas: [
-            {
-                opcion: "A",
-                texto: respuestaA,
-                correcta: respuestaCorrecta === "A"
-            },
-            {
-                opcion: "B",
-                texto: respuestaB,
-                correcta: respuestaCorrecta === "B"
-            },
-            {
-                opcion: "C",
-                texto: respuestaC,
-                correcta: respuestaCorrecta === "C"
-            },
-            {
-                opcion: "D",
-                texto: respuestaD,
-                correcta: respuestaCorrecta === "D"
-            }
-        ],
+        selectedExam.preguntas[questionIndex] = {
 
-        correcta: respuestaCorrecta
-    };
+            id: editingQuestionId,
 
-    selectedExam.preguntas.push(newQuestion);
+            pregunta,
 
-    console.log("Pregunta agregada:", selectedExam);
+            respuestas: [
+                {
+                    opcion: "A",
+                    texto: respuestaA,
+                    correcta: respuestaCorrecta === "A"
+                },
+                {
+                    opcion: "B",
+                    texto: respuestaB,
+                    correcta: respuestaCorrecta === "B"
+                },
+                {
+                    opcion: "C",
+                    texto: respuestaC,
+                    correcta: respuestaCorrecta === "C"
+                },
+                {
+                    opcion: "D",
+                    texto: respuestaD,
+                    correcta: respuestaCorrecta === "D"
+                }
+            ],
+
+            correcta: respuestaCorrecta
+        };
+
+        editingQuestionId = null;
+
+        document.getElementById(
+            "submitQuestionBtn"
+        ).textContent =
+            "Guardar Pregunta";
+
+    } else {
+
+        const newQuestion = {
+
+            id: Date.now(),
+
+            pregunta,
+
+            respuestas: [
+                {
+                    opcion: "A",
+                    texto: respuestaA,
+                    correcta: respuestaCorrecta === "A"
+                },
+                {
+                    opcion: "B",
+                    texto: respuestaB,
+                    correcta: respuestaCorrecta === "B"
+                },
+                {
+                    opcion: "C",
+                    texto: respuestaC,
+                    correcta: respuestaCorrecta === "C"
+                },
+                {
+                    opcion: "D",
+                    texto: respuestaD,
+                    correcta: respuestaCorrecta === "D"
+                }
+            ],
+
+            correcta: respuestaCorrecta
+        };
+
+        selectedExam.preguntas.push(newQuestion);
+    }
 
     updateExam(selectedExam);
 
