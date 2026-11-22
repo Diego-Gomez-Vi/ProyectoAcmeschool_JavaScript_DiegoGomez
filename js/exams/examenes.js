@@ -37,7 +37,10 @@ function renderExams() {
                 <td>${exam.tiempo} min</td>
                 <td>${exam.aprobacion}%</td>
                 <td>
-                    <button class="btn-edit">
+                    <button
+                        class="btn-edit"
+                        data-codigo="${exam.codigo}"
+                    >
                         Editar
                     </button>
 
@@ -68,6 +71,22 @@ function renderExams() {
 
     });
 
+    const editButtons =
+        document.querySelectorAll(".btn-edit");
+
+    editButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const examCode =
+                button.dataset.codigo;
+
+            editExam(examCode);
+
+        });
+
+    });
+
 }
 
 renderExams();
@@ -83,6 +102,37 @@ function deleteExam(examCode) {
     saveExams(filteredExams);
 
     renderExams();
+}
+
+function editExam(examCode) {
+
+    const exams = getExams();
+
+    const exam = exams.find(
+        exam => exam.codigo === examCode
+    );
+
+    if (!exam) return;
+
+    document.getElementById("codigo").value =
+        exam.codigo;
+
+    document.getElementById("titulo").value =
+        exam.titulo;
+
+    document.getElementById("tiempo").value =
+        exam.tiempo;
+
+    document.getElementById("aprobacion").value =
+        exam.aprobacion;
+
+    document.getElementById("descripcion").value =
+        exam.descripcion;
+
+    editingExamCode = examCode;
+
+    submitExamBtn.textContent =
+        "Actualizar Examen";
 }
 
 examForm.addEventListener("submit", (event) => {
@@ -108,7 +158,8 @@ examForm.addEventListener("submit", (event) => {
 
     const examExists = exams.some(
         exam =>
-            exam.codigo === codigo
+            exam.codigo === codigo &&
+            exam.codigo !== editingExamCode
     );
 
     if (examExists) {
@@ -120,15 +171,38 @@ examForm.addEventListener("submit", (event) => {
         return;
     }
 
-    const newExam = {
-        codigo,
-        titulo,
-        tiempo,
-        aprobacion,
-        descripcion
-    };
+    if (editingExamCode) {
 
-    exams.push(newExam);
+        const examIndex = exams.findIndex(
+            exam => exam.codigo === editingExamCode
+        );
+
+        exams[examIndex] = {
+            codigo,
+            titulo,
+            tiempo,
+            aprobacion,
+            descripcion
+        };
+
+        editingExamCode = null;
+
+        submitExamBtn.textContent =
+            "Guardar Examen";
+
+    } else {
+
+        const newExam = {
+            codigo,
+            titulo,
+            tiempo,
+            aprobacion,
+            descripcion
+        };
+
+        exams.push(newExam);
+
+    }
 
     saveExams(exams);
 
