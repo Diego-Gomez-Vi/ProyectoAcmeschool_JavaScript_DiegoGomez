@@ -52,7 +52,10 @@ function renderQuestions() {
                         Editar
                     </button>
 
-                    <button class="btn-delete">
+                    <button
+                        class="btn-delete"
+                        data-id="${question.id}"
+                    >
                         Eliminar
                     </button>
                 </td>
@@ -60,9 +63,38 @@ function renderQuestions() {
         `;
     });
 
+    const deleteButtons =
+        document.querySelectorAll(".btn-delete");
+
+    deleteButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const questionId =
+                button.dataset.id;
+
+            deleteQuestion(questionId);
+
+        });
+
+    });
+
 }
 
 renderQuestions();
+
+function deleteQuestion(questionId) {
+
+    selectedExam.preguntas =
+        selectedExam.preguntas.filter(
+            question =>
+                question.id !== Number(questionId)
+        );
+
+    updateExam(selectedExam);
+
+    renderQuestions();
+}
 
 questionForm.addEventListener("submit", (event) => {
 
