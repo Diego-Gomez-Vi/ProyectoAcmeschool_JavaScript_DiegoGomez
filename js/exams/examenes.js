@@ -41,7 +41,10 @@ function renderExams() {
                         Editar
                     </button>
 
-                    <button class="btn-delete">
+                    <button
+                        class="btn-delete"
+                        data-codigo="${exam.codigo}"
+                    >
                         Eliminar
                     </button>
                 </td>
@@ -49,9 +52,38 @@ function renderExams() {
         `;
     });
 
+    const deleteButtons =
+        document.querySelectorAll(".btn-delete");
+
+    deleteButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const examCode =
+                button.dataset.codigo;
+
+            deleteExam(examCode);
+
+        });
+
+    });
+
 }
 
 renderExams();
+
+function deleteExam(examCode) {
+
+    const exams = getExams();
+
+    const filteredExams = exams.filter(
+        exam => exam.codigo !== examCode
+    );
+
+    saveExams(filteredExams);
+
+    renderExams();
+}
 
 examForm.addEventListener("submit", (event) => {
 
