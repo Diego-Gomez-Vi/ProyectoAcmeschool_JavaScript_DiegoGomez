@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión de Preguntas | Acme School</title>
+
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="stylesheet" href="./assets/css/preguntas.css">
+</head>
+<body>
+
+    <header class="header">
+        <h1>Gestión de Preguntas</h1>
+
+        <a href="./examenes.html" class="btn-back">
+            Volver
+        </a>
+    </header>
+
+    <main class="questions-container">
+
+        <section class="form-section">
+
+            <h2>Nueva Pregunta</h2>
+
+            <form id="questionForm">
+
+                <textarea
+                    id="pregunta"
+                    placeholder="Escriba la pregunta"
+                    rows="3"
+                    required
+                ></textarea>
+
+                <h3>Respuestas</h3>
+
+                <input
+                    type="text"
+                    id="respuestaA"
+                    placeholder="Respuesta A"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="respuestaB"
+                    placeholder="Respuesta B"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="respuestaC"
+                    placeholder="Respuesta C"
+                    required
+                >
+
+                <input
+                    type="text"
+                    id="respuestaD"
+                    placeholder="Respuesta D"
+                    required
+                >
+
+                <label>
+                    Respuesta correcta:
+                </label>
+
+                <select id="respuestaCorrecta" required>
+                    <option value="">
+                        Seleccione una respuesta
+                    </option>
+
+                    <option value="A">
+                        Respuesta A
+                    </option>
+
+                    <option value="B">
+                        Respuesta B
+                    </option>
+
+                    <option value="C">
+                        Respuesta C
+                    </option>
+
+                    <option value="D">
+                        Respuesta D
+                    </option>
+                </select>
+
+                <button
+                    type="submit"
+                    id="submitQuestionBtn"
+                >
+                    Guardar Pregunta
+                </button>
+
+            </form>
+
+        </section>
+
+        <section class="table-section">
+
+            <h2>Preguntas Registradas</h2>
+
+            <table>
+
+                <thead>
+                    <tr>
+                        <th>#</th>
+                        <th>Pregunta</th>
+                        <th>Respuesta Correcta</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+
+                <tbody id="questionsTableBody">
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+    <script
+        type="module"
+        src="./js/exams/preguntas.js"
+    ></script>
+
+</body>
+</html>
