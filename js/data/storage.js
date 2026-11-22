@@ -49,3 +49,16 @@ export function saveExams(exams) {
         JSON.stringify(exams)
     );
 }
+
+export function updateExam(updatedExam) {
+
+    const exams = getExams();
+
+    const examIndex = exams.findIndex(
+        exam => exam.codigo === updatedExam.codigo
+    );
+
+    exams[examIndex] = updatedExam;
+
+    saveExams(exams);
+}
