@@ -1,0 +1,117 @@
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header h1 {
+    color: white;
+}
+
+.btn-back {
+    background-color: white;
+    color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.questions-container {
+    padding: 30px;
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 25px;
+}
+
+.form-section,
+.table-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.form-section h2,
+.table-section h2 {
+    margin-bottom: 20px;
+}
+
+.form-section h3 {
+    margin-top: 10px;
+    margin-bottom: 10px;
+    color: var(--secondary-color);
+}
+
+#questionForm {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+#questionForm button {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 12px;
+    border-radius: 8px;
+    font-weight: 600;
+}
+
+#questionForm button:hover {
+    background-color: var(--primary-dark);
+}
+
+.table-section {
+    overflow-x: auto;
+}
+
+table {
+    margin-top: 15px;
+}
+
+tbody tr:hover {
+    background-color: #f8fafc;
+}
+
+.btn-edit,
+.btn-delete {
+    padding: 8px 12px;
+    border-radius: 6px;
+    color: white;
+    margin-right: 5px;
+}
+
+.btn-edit {
+    background-color: #f59e0b;
+}
+
+.btn-delete {
+    background-color: #ef4444;
+}
+
+textarea {
+    resize: vertical;
+}
+
+label {
+    font-weight: 600;
+    color: var(--secondary-color);
+}
+
+@media (max-width: 900px) {
+
+    .questions-container {
+        grid-template-columns: 1fr;
+    }
+
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        text-align: center;
+    }
+
+}
