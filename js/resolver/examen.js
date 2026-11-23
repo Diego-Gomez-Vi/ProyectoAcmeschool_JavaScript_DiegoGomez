@@ -2,11 +2,18 @@ import {
     getExams
 } from "../data/storage.js";
 
+import {
+    startTimer
+} from "../exams/temporizador.js";
+
 const examTitle =
     document.getElementById("examTitle");
 
 const studentInfo =
     document.getElementById("studentInfo");
+
+const timerElement =
+    document.getElementById("timer");
 
 const questionsContainer =
     document.getElementById("questionsContainer");
@@ -74,3 +81,15 @@ function renderQuestions() {
 }
 
 renderQuestions();
+
+startTimer(
+    Number(selectedExam.tiempo) * 60,
+    timerElement,
+    () => {
+
+        alert(
+            "El tiempo del examen ha finalizado"
+        );
+
+    }
+);
