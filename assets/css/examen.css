@@ -1,0 +1,54 @@
+.header {
+    background-color: var(--primary-color);
+    color: white;
+    padding: 20px;
+    text-align: center;
+}
+
+.header h1 {
+    color: white;
+}
+
+.exam-container {
+    padding: 30px;
+}
+
+.exam-info {
+    background: white;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+    margin-bottom: 20px;
+}
+
+#studentInfo,
+#timer {
+    font-weight: 600;
+    margin-top: 10px;
+}
+
+.question-card {
+    background: white;
+    margin-bottom: 20px;
+    padding: 20px;
+    border-radius: 12px;
+    box-shadow: var(--shadow);
+}
+
+.question-card h3 {
+    margin-bottom: 15px;
+}
+
+.option {
+    margin-bottom: 10px;
+}
+
+#finishExamBtn {
+    width: 100%;
+    padding: 14px;
+    background-color: #7cb342;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}

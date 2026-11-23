@@ -22,3 +22,31 @@ if (selectedExam) {
 }
 
 console.log("Presentar examen cargado");
+
+const studentForm =
+    document.getElementById("studentForm");
+
+studentForm.addEventListener("submit", (event) => {
+
+    event.preventDefault();
+
+    const nombre =
+        document.getElementById("studentName").value.trim();
+
+    const identificacion =
+        document.getElementById("studentId").value.trim();
+
+    const studentData = {
+        nombre,
+        identificacion,
+        examen: examCode
+    };
+
+    localStorage.setItem(
+        "studentExamData",
+        JSON.stringify(studentData)
+    );
+
+    window.location.href = "./examen.html";
+
+});
