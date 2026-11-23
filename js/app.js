@@ -3,4 +3,5 @@ import "./auth/login.js";
 
 initializeData();
 
+
 console.log("Acme School iniciado");
