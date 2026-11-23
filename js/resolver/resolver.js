@@ -45,6 +45,27 @@ function renderExams() {
         `;
     });
 
+    const startButtons =
+        document.querySelectorAll(".btn-start");
+
+    startButtons.forEach(button => {
+
+        button.addEventListener("click", () => {
+
+            const examCode =
+                button.dataset.codigo;
+
+            localStorage.setItem(
+                "examToResolve",
+                examCode
+            );
+
+            window.location.href =
+                "./presentar-examen.html";
+
+        });
+
+    });
 }
 
 renderExams();

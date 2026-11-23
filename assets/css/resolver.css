@@ -55,3 +55,13 @@
     color: white;
     border-radius: 8px;
 }
+
+#studentForm button {
+    width: 100%;
+    padding: 12px;
+    background-color: #7cb342;
+    color: white;
+    border: none;
+    border-radius: 8px;
+    font-weight: 600;
+}
