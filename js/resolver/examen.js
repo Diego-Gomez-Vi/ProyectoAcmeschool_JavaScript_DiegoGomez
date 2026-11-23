@@ -18,6 +18,9 @@ const timerElement =
 const questionsContainer =
     document.getElementById("questionsContainer");
 
+const finishExamBtn =
+    document.getElementById("finishExamBtn");
+
 const studentData = JSON.parse(
     localStorage.getItem("studentExamData")
 );
@@ -91,5 +94,71 @@ startTimer(
             "El tiempo del examen ha finalizado"
         );
 
+        finishExam();
     }
 );
+
+finishExamBtn.addEventListener("click", finishExam);
+
+function finishExam() {
+
+    let correctAnswers = 0;
+
+    selectedExam.preguntas.forEach(question => {
+
+        const selectedOption =
+            document.querySelector(
+                `input[name="question-${question.id}"]:checked`
+            );
+
+        if (
+            selectedOption &&
+            selectedOption.value === question.correcta
+        ) {
+            correctAnswers++;
+        }
+
+    });
+
+    const totalQuestions =
+        selectedExam.preguntas.length;
+
+    const percentage =
+        (correctAnswers / totalQuestions) * 100;
+
+    const approved =
+        percentage >= Number(selectedExam.aprobacion);
+
+    const result = {
+
+        estudiante:
+            studentData.nombre,
+
+        identificacion:
+            studentData.identificacion,
+
+        examen:
+            selectedExam.titulo,
+
+        correctas:
+            correctAnswers,
+
+        total:
+            totalQuestions,
+
+        porcentaje:
+            percentage.toFixed(2),
+
+        aprobado:
+            approved
+
+    };
+
+    localStorage.setItem(
+        "examResult",
+        JSON.stringify(result)
+    );
+
+    window.location.href =
+        "./resultado.html";
+}
