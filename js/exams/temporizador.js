@@ -14,8 +14,9 @@ export function startTimer(
         const seconds =
             timeRemaining % 60;
 
-        timerElement.textContent =
-            `Tiempo restante: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`;
+        timerElement.update(
+            `Tiempo restante: ${String(minutes).padStart(2, "0")}:${String(seconds).padStart(2, "0")}`
+        );
     }
 
     updateTimer();

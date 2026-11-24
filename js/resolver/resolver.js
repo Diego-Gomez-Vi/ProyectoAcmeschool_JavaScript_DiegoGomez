@@ -18,30 +18,12 @@ function renderExams() {
     exams.forEach(exam => {
 
         examList.innerHTML += `
-            <div class="exam-card">
-
-                <h3>${exam.titulo}</h3>
-
-                <p>
-                    Código: ${exam.codigo}
-                </p>
-
-                <p>
-                    Tiempo: ${exam.tiempo} minutos
-                </p>
-
-                <p>
-                    Aprobación: ${exam.aprobacion}%
-                </p>
-
-                <button
-                    class="btn-start"
-                    data-codigo="${exam.codigo}"
-                >
-                    Presentar Examen
-                </button>
-
-            </div>
+            <exam-card
+                titulo="${exam.titulo}"
+                codigo="${exam.codigo}"
+                tiempo="${exam.tiempo}"
+                aprobacion="${exam.aprobacion}"
+            ></exam-card>
         `;
     });
 
