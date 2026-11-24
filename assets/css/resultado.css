@@ -30,3 +30,35 @@
     margin-top: 25px;
     font-size: 2rem;
 }
+
+.result-actions {
+    margin-top: 30px;
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.btn-dashboard,
+.btn-resolver {
+    display: inline-block;
+    text-decoration: none;
+    color: white;
+    padding: 12px 18px;
+    border-radius: 8px;
+    font-weight: 600;
+    transition: 0.3s;
+}
+
+.btn-dashboard:hover,
+.btn-resolver:hover {
+    opacity: 0.9;
+}
+
+.btn-dashboard {
+    background-color: var(--primary-color);
+}
+
+.btn-resolver {
+    background-color: #7cb342;
+}
