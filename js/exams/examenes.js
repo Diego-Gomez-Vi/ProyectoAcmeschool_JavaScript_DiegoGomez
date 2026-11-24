@@ -207,6 +207,8 @@ examForm.addEventListener("submit", (event) => {
         );
 
         exams[examIndex] = {
+            ...exams[examIndex],
+
             codigo,
             titulo,
             tiempo,
