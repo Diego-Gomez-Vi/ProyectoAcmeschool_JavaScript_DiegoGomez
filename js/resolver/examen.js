@@ -149,6 +149,9 @@ function finishExam() {
         porcentaje:
             percentage.toFixed(2),
 
+        porcentajeRequerido:
+            selectedExam.aprobacion,
+
         aprobado:
             approved
 

@@ -17,6 +17,9 @@ const percentageResult =
 const approvalResult =
     document.getElementById("approvalResult");
 
+const requiredPercentage =
+    document.getElementById("requiredPercentage");
+
 studentResult.textContent =
     result.estudiante;
 
@@ -29,20 +32,35 @@ correctAnswers.textContent =
 percentageResult.textContent =
     `Porcentaje obtenido: ${result.porcentaje}%`;
 
+requiredPercentage.textContent =
+    `Porcentaje requerido: ${result.porcentajeRequerido}%`;
+
 if (result.aprobado) {
 
-    approvalResult.textContent =
-        "✅ APROBADO";
+    approvalResult.innerHTML = `
+        <div class="result-status success">
 
-    approvalResult.style.color =
-        "#22c55e";
+            <h2>✅ Aprobado</h2>
+
+            <p>
+                ¡Enhorabuena! Has superado el porcentaje mínimo requerido.
+            </p>
+
+        </div>
+    `;
 
 } else {
 
-    approvalResult.textContent =
-        "❌ NO APROBADO";
+    approvalResult.innerHTML = `
+        <div class="result-status fail">
 
-    approvalResult.style.color =
-        "#ef4444";
+            <h2>❌ No Aprobado</h2>
+
+            <p>
+                Necesitas alcanzar el porcentaje mínimo de aprobación para superar este examen.
+            </p>
+
+        </div>
+    `;
 
 }

@@ -27,8 +27,7 @@
 }
 
 #approvalResult {
-    margin-top: 25px;
-    font-size: 2rem;
+    margin-top: 20px;
 }
 
 .result-actions {
@@ -61,4 +60,46 @@
 
 .btn-resolver {
     background-color: #7cb342;
+}
+
+.result-status {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 12px;
+}
+
+.result-status.success {
+    background-color: #dcfce7;
+    border: 2px solid #22c55e;
+}
+
+.result-status.fail {
+    background-color: #fee2e2;
+    border: 2px solid #ef4444;
+}
+
+.result-status p {
+    margin-top: 10px;
+    font-size: 1rem;
+}
+
+.result-status h2 {
+    font-size: 1.5rem;
+    font-weight: 700;
+    margin-bottom: 8px;
+}
+
+.result-status {
+    max-width: 700px;
+    margin: 25px auto 0;
+}
+
+.result-status.success {
+    background-color: #dcfce7;
+    border: 2px solid #22c55e;
+}
+
+.result-status.fail {
+    background-color: #fee2e2;
+    border: 2px solid #ef4444;
 }
