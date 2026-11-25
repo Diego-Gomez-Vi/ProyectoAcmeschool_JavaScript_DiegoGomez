@@ -14,6 +14,9 @@ class ExamCard extends HTMLElement {
         const aprobacion =
             this.getAttribute("aprobacion");
 
+        const preguntas =
+            this.getAttribute("preguntas");
+
         this.innerHTML = `
             <div class="exam-card">
 
@@ -21,6 +24,10 @@ class ExamCard extends HTMLElement {
 
                 <p>
                     Código: ${codigo}
+                </p>
+
+                <p>
+                    Preguntas: ${preguntas}
                 </p>
 
                 <p>

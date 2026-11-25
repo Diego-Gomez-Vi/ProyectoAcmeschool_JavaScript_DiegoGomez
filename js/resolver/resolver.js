@@ -23,6 +23,7 @@ function renderExams() {
                 codigo="${exam.codigo}"
                 tiempo="${exam.tiempo}"
                 aprobacion="${exam.aprobacion}"
+                preguntas="${exam.preguntas ? exam.preguntas.length : 0}"
             ></exam-card>
         `;
     });

@@ -12,6 +12,12 @@ const examTitle =
 const studentInfo =
     document.getElementById("studentInfo");
 
+const questionCount =
+    document.getElementById("questionCount");
+
+const requiredPercentage =
+    document.getElementById("requiredPercentage");
+
 const timerElement =
     document.getElementById("timer");
 
@@ -44,6 +50,12 @@ examTitle.textContent =
 
 studentInfo.textContent =
     `${studentData.nombre} - ${studentData.identificacion}`;
+
+questionCount.textContent =
+    `Total de preguntas: ${selectedExam.preguntas.length}`;
+
+requiredPercentage.textContent =
+    `Porcentaje requerido: ${selectedExam.aprobacion}%`;
 
 function renderQuestions() {
 
