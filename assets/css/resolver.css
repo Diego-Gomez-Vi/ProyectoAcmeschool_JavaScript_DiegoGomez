@@ -1,8 +1,11 @@
 .header {
     background-color: var(--primary-color);
     color: white;
-    padding: 20px;
-    text-align: center;
+    padding: 20px 40px;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
 }
 
 .header h1 {
@@ -28,14 +31,15 @@
     display: grid;
     grid-template-columns: repeat(
         auto-fit,
-        minmax(300px, 1fr)
+        minmax(420px, 500px)
     );
     gap: 20px;
+    justify-content: center;
 }
 
 .exam-card {
     background: #f8fafc;
-    padding: 20px;
+    padding: 22px;
     border-radius: 10px;
     border: 1px solid #e2e8f0;
 }
@@ -51,8 +55,7 @@
 .exam-card button {
     width: 100%;
     padding: 10px;
-    background-color: var(--primary-color);
-    color: white;
+    background-color: #7cb342;
     border-radius: 8px;
 }
 
@@ -64,4 +67,17 @@
     border: none;
     border-radius: 8px;
     font-weight: 600;
+}
+
+.btn-back {
+    background-color: white;
+    color: var(--primary-color);
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    text-decoration: none;
+}
+
+.btn-back:hover {
+    opacity: 0.9;
 }
